@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <title>Image Generator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{% static 'logo.gif' %}" type="image/x-icon">
+
+    <style>
+        @keyframes rainbow-border {
+            0% {
+                border-color: #D32F2F;
+            }
+
+            25% {
+                border-color: #3949AB;
+            }
+
+            50% {
+                border-color: #2E7D32;
+            }
+
+            75% {
+                border-color: #F57C00;
+            }
+
+            100% {
+                border-color: #FFC107;
+            }
+        }
+
+        @keyframes slide-background {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: url("{% static 'photo.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: slide-background 30s linear infinite;
+        }
+
+        #codilo_watermark {
+            border: 2px solid;
+            animation: rainbow-border 3s infinite;
+            padding: 10px;
+
+            border-width: 7px;
+            transition: border-color 1s ease;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid gray;
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: black;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        h1,
+        .lead {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .bg-primary {
+            background-color: #007bff !important;
+        }
+
+        .text-primary {
+            color: #007bff !important;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        alert("به سایت لوگو ساز خوش آمدید")
+    </script>
+    <div class="container mt-4" id="codilo_watermark">
+        <div id="logoContainer">
+            <center><img src="{% static 'logo.gif' %}" width="300px"></center>
+        </div>
+        <h1>ساخت لوگو در کمترین زمان</h1>
+        <p class="lead">با استفاده از این سایت می‌توانید لوگوی منحصر به فرد خود را بسازید. فقط نام خودتان و یک عدد
+            را
+            وارد کنید و سپس عکس لوگوی خود را ایجاد کنید.</p>
+        <form method="post" action="{% url 'generate_image' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <center><b><label for="name" style="color: #D32F2F;">نام خود را وارد</label></b></center>
+                <input type="text" class="form-control" id="name" name="name" placeholder="برای وارد کردن نام کلیک کنید"
+                    required>
+            </div>
+            <div class="form-group ">
+                <center><b><label for="number" style="color: #D32F2F;">عدد مورد نظر را وارد کنید</label></b></center>
+                <input type="number" class="form-control" id="number" name="number"
+                    placeholder="برای تعیین کردن عدد کلیک کنید" required min="1" max="136">
+                <small style="color: #D32F2F;">
+                    <br>
+                    <center><b>.عدد باید کمتر از 136 و بیشتر از 0 باشد</b></center>
+                    <br>
+                </small>
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+            <a href="https://rubika.ir/pyrogram">
+                <button type="submit" class="btn btn-primary btn-block">ایجاد عکس</button>
+            </a>
+        </form>
+
+    </div>
+
+    <div id="imageContainer" class="mt-4 loading-container ">
+        <center><img src="{% static 'loading.gif' %}" alt="Loading..." style="display: none;" id="loadingImage"
+                width="350px" height="50px"></center>
+    </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>عکس ایجاد شده</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .image-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #333;
+        }
+
+        body {
+            background-color: #111;
+            color: #fff;
+        }
+
+        h1 {
+            color: #f0ad4e;
+        }
+
+        img {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <h1 class="mb-4">عکس ایجاد شده:</h1>
+            <div class="col-md-8 image-box">
+                <img src="{{ image_url }}" alt="تصویر ایجاد شده" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
