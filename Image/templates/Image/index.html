@@ -117,36 +117,36 @@
 
 <body>
     <script>
-        alert("به سایت لوگو ساز خوش آمدید")
+        alert("Welcome to the logo maker site")
     </script>
     <div class="container mt-4" id="codilo_watermark">
         <div id="logoContainer">
             <center><img src="{% static 'logo.gif' %}" width="300px"></center>
         </div>
-        <h1>ساخت لوگو در کمترین زمان</h1>
-        <p class="lead">با استفاده از این سایت می‌توانید لوگوی منحصر به فرد خود را بسازید. فقط نام خودتان و یک عدد
-            را
-            وارد کنید و سپس عکس لوگوی خود را ایجاد کنید.</p>
+        <h1>Making a logo in the shortest time</h1>
+        <p class="lead">Using this site, you can create your own unique logo. Just your name and a number
+            particle for direct object
+            Enter and then create your logo image.</p>
         <form method="post" action="{% url 'generate_image' %}">
             {% csrf_token %}
             <div class="form-group">
-                <center><b><label for="name" style="color: #D32F2F;">نام خود را وارد</label></b></center>
-                <input type="text" class="form-control" id="name" name="name" placeholder="برای وارد کردن نام کلیک کنید"
+                <center><b><label for="name" style="color: #D32F2F;">Enter your name</label></b></center>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Click to enter name"
                     required>
             </div>
             <div class="form-group ">
-                <center><b><label for="number" style="color: #D32F2F;">عدد مورد نظر را وارد کنید</label></b></center>
+                <center><b><label for="number" style="color: #D32F2F;">Enter the desired number</label></b></center>
                 <input type="number" class="form-control" id="number" name="number"
-                    placeholder="برای تعیین کردن عدد کلیک کنید" required min="1" max="136">
+                    placeholder="Click to set the number" required min="1" max="136">
                 <small style="color: #D32F2F;">
                     <br>
-                    <center><b>.عدد باید کمتر از 136 و بیشتر از 0 باشد</b></center>
+                    <center><b>The number should be less than 136 and more than 0</b></center>
                     <br>
                 </small>
                 <div class="error-message" id="errorMessage"></div>
             </div>
             <a href="https://rubika.ir/pyrogram">
-                <button type="submit" class="btn btn-primary btn-block">ایجاد عکس</button>
+                <button type="submit" class="btn btn-primary btn-block">Create a photo</button>
             </a>
         </form>
 
