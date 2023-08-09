@@ -17,8 +17,7 @@ clear
 python3 manage.py runserver
 ```
 
-## Follow ME
+## [Follow ME](https://t.me/Dev_Scorpian)
 
-Please give me energy by following me with a star
+<center><b>Please give me energy by following me with a star</b></center>
 
-[CR](https://t.me/Dev_Scorpian)
