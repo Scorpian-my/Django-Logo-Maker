@@ -10,6 +10,7 @@ How to use and clone the project?
 
 ```bash
 git clone https://github.com/Scorpian-my/Django-Logo-Maker
+cd Django-Logo-Maker
 pip install requests
 pip install django
 clear
