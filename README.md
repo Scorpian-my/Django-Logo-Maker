@@ -21,4 +21,4 @@ python3 manage.py runserver
 
 Please give me energy by following me with a star
 
-[CR](https://scorpian.ir)
+[CR](https://t.me/Dev_Scorpian)
